@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "compileOnSave": false,
+  "files": [
+    "src/main.ts",
+    "src/remote.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ],
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": [],
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": [
+      "ES2022",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

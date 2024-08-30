@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.angular/
+backend/micro-frontends/
+.secret
+.DS_Store
