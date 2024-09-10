@@ -9,7 +9,7 @@
 
 
 ## Running locally
-### micro frontend 
+### Micro frontend 
 
 cd to `mf-react` or `mf-angular`;
 
@@ -20,7 +20,7 @@ cd to `mf-react` or `mf-angular`;
 
 `mf-react` is served at http://localhost:3002
 
-### host
+### Host
 
 To load the locally served micro frontend, add an override in `host/src/app/core/micro-frontend.service.ts`.
 
