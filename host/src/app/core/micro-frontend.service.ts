@@ -1,13 +1,14 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
-import { lastValueFrom } from "rxjs";
+import { lastValueFrom, map } from "rxjs";
 import {
   bootstrapMicroFrontend,
   MicroFrontend,
 } from "./bootstrap-micro-frontend";
 
 const OVERRIDES: MicroFrontend[] = [
-  //{ name: "react", url: "http://localhost:3002" },
+  { name: "angular", url: "http://localhost:3001" },
+  { name: "react", url: "http://localhost:3002" },
 ];
 
 const ORIGIN = "http://164.92.164.40";
@@ -19,18 +20,27 @@ export class MicroFrontendService {
 
   async bootstrap(name: string) {
     const microFrontends = await this.getMicroFrontends();
-
-    const override = OVERRIDES.find((mf) => mf.name === name);
     const microFrontend = microFrontends.find((mf) => mf.name === name)!;
 
-    bootstrapMicroFrontend(override ?? microFrontend);
+    bootstrapMicroFrontend(microFrontend);
   }
 
   getMicroFrontends(): Promise<MicroFrontend[]> {
     if (!this.#microFrontendsPromise) {
-      this.#microFrontendsPromise = lastValueFrom(
-        this.#http.get<MicroFrontend[]>(`${ORIGIN}/micro-frontend`),
-      );
+      const microFrontends$ = this.#http
+        .get<MicroFrontend[]>(`${ORIGIN}/micro-frontend`)
+        .pipe(
+          map((microFrontends) => {
+            return [
+              ...microFrontends.filter(
+                (mf) => !OVERRIDES.some((o) => o.name !== mf.name),
+              ),
+              ...OVERRIDES,
+            ];
+          }),
+        );
+
+      this.#microFrontendsPromise = lastValueFrom(microFrontends$);
     }
 
     return this.#microFrontendsPromise;

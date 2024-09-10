@@ -51,37 +51,23 @@
             "tsConfig": "tsconfig.json",
             "styles": ["src/styles.scss"],
             "inlineStyleLanguage": "scss",
+            "outputHashing": "all",
+            "optimization": false,
+            "extractLicenses": false,
+            "sourceMap": true,
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ]
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
-            }
-          },
-          "defaultConfiguration": "production"
+          }
         },
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "host:build:production"
-            },
-            "development": {
-              "buildTarget": "host:build:development",
-              "port": 3000
-            }
-          },
-          "defaultConfiguration": "development"
+          "options": {
+            "buildTarget": "host:build"
+          }
         }
       }
     }

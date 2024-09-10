@@ -28,8 +28,8 @@ export function Chat(props: { color: string }) {
   return (
     <>
       <div style={{ backgroundColor: props.color }}>
-        {messages.map((m) => (
-          <pre>{m}</pre>
+        {messages.map((message, i) => (
+          <pre key={i}>{message}</pre>
         ))}
       </div>
 
