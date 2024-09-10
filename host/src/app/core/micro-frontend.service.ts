@@ -7,8 +7,8 @@ import {
 } from "./bootstrap-micro-frontend";
 
 const OVERRIDES: MicroFrontend[] = [
-  { name: "angular", url: "http://localhost:3001" },
-  { name: "react", url: "http://localhost:3002" },
+  //{ name: "angular", url: "http://localhost:3001" },
+  //{ name: "react", url: "http://localhost:3002" },
 ];
 
 const ORIGIN = "http://164.92.164.40";
