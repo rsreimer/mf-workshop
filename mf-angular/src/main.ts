@@ -1,5 +1,6 @@
-import { bootstrapApplication } from "@angular/platform-browser";
-import { AppComponent } from "./app/app.component";
-import { appConfig } from "./app/app.config";
+import("./bootstrap").then(async (module) => {
+  const appRef = await module.appRefPromise;
+  const { AppComponent } = await import("./app/app.component");
 
-bootstrapApplication(AppComponent, appConfig);
+  appRef.bootstrap(AppComponent);
+});

@@ -2,7 +2,7 @@ import { InjectionToken } from "@angular/core";
 
 declare global {
   interface Window {
-    __MF_MESSAGE_QUEUE__: MessageQueue;
+    __MF_MESSAGE_QUEUE__?: MessageQueue;
   }
 }
 
@@ -18,5 +18,10 @@ export interface MessageQueue {
 }
 
 export const MESSAGE_QUEUE = new InjectionToken<MessageQueue>("MESSAGE_QUEUE", {
-  factory: () => window.__MF_MESSAGE_QUEUE__,
+  factory: () =>
+    window.__MF_MESSAGE_QUEUE__ ?? {
+      send: () => {},
+      subscribe: () => {},
+      unsubscribe: () => {},
+    },
 });

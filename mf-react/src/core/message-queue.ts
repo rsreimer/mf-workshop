@@ -15,4 +15,8 @@ export interface MessageQueue {
   unsubscribe(listener: MessageQueueListener): void;
 }
 
-export const MESSAGE_QUEUE = window.__MF_MESSAGE_QUEUE__;
+export const MESSAGE_QUEUE = window.__MF_MESSAGE_QUEUE__ ?? {
+  send: () => {},
+  subscribe: () => {},
+  unsubscribe: () => {},
+};

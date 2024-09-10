@@ -1,8 +1,6 @@
-import { ApplicationConfig, NgZone } from "@angular/core";
+import { ApplicationConfig } from "@angular/core";
+import { provideSharedNgZone } from "./core/shared-ng-zone";
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    // @ts-ignore
-    { provide: NgZone, useValue: window.__MF_SHARED_ZONE__ },
-  ],
+  providers: [provideSharedNgZone()],
 };

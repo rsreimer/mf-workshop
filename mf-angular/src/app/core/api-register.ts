@@ -2,7 +2,7 @@ import { InjectionToken } from "@angular/core";
 
 declare global {
   interface Window {
-    __MF_API_REGISTER__: ApiRegister;
+    __MF_API_REGISTER__?: ApiRegister;
   }
 }
 
@@ -12,5 +12,9 @@ export interface ApiRegister {
 }
 
 export const API_REGISTER = new InjectionToken<ApiRegister>("API_REGISTER", {
-  factory: () => window.__MF_API_REGISTER__,
+  factory: () =>
+    window.__MF_API_REGISTER__ ?? {
+      register: () => {},
+      acquire: () => undefined,
+    },
 });

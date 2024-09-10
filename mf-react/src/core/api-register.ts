@@ -9,4 +9,7 @@ export interface ApiRegister {
   acquire(key: string): Function | undefined;
 }
 
-export const API_REGISTER = window.__MF_API_REGISTER__;
+export const API_REGISTER = window.__MF_API_REGISTER__ ?? {
+  register: () => {},
+  acquire: () => undefined,
+};
