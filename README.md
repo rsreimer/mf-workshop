@@ -11,7 +11,14 @@
 ## Running locally
 ### Running micro frontend 
 
+cd to `mf-react` or `mf-angular`;
+
 `npm start`
+
+
+`mf-angular` is served at http://localhost:3001
+
+`mf-react` is served at http://localhost:3002
 
 ### Running host locally
 
@@ -20,6 +27,8 @@ To load the locally served micro frontend, add an override in `host/src/app/core
 Afterwards;
 
 `npm start`
+
+Access the host at http://localhost:3000
 
 
 ## Deploying a micro frontend
