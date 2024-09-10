@@ -33,7 +33,7 @@ export class MicroFrontendService {
           map((microFrontends) => {
             return [
               ...microFrontends.filter(
-                (mf) => !OVERRIDES.some((o) => o.name !== mf.name),
+                (mf) => !OVERRIDES.some((o) => o.name === mf.name),
               ),
               ...OVERRIDES,
             ];
