@@ -4,7 +4,7 @@
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "tsx ./scripts/deploy.ts"
+    "deploy": "npm run build && tsx ./scripts/deploy.ts"
   },
   "private": true,
   "dependencies": {

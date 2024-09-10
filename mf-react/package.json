@@ -16,7 +16,7 @@
     "start": "webpack serve",
     "serve": "http-server dist --port 3002",
     "build": "webpack --mode production",
-    "deploy": "tsx ./scripts/deploy.ts"
+    "deploy": "npm run build && tsx ./scripts/deploy.ts"
   },
   "devDependencies": {
     "css-loader": "^6.11.0",
