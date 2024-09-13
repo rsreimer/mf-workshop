@@ -1,5 +1,3 @@
-# React micro frontend 
-
 ## Running locally
 `npm install`
 

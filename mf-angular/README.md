@@ -1,5 +1,3 @@
-# Angular micro frontend 
-
 ## Running locally
 
 `npm install`

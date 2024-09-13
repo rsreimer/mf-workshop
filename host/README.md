@@ -1,5 +1,3 @@
-# Host
-
 ## Using locally served micro frontends
 Add an override in `host/src/overrides.ts`.
 
