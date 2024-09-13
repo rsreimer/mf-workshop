@@ -4,7 +4,8 @@
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "npm run build && tsx ./scripts/deploy.ts"
+    "deploy": "npm run build && tsx ./scripts/deploy.ts",
+    "postinstall": "tsx ./scripts/postinstall.ts"
   },
   "private": true,
   "dependencies": {
@@ -33,3 +34,4 @@
     "typescript": "~5.5.2"
   }
 }
+

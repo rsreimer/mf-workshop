@@ -2,5 +2,7 @@ node_modules/
 dist/
 .angular/
 backend/micro-frontends/
+backend/index.js
 .secret
+.name
 .DS_Store
