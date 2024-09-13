@@ -1,7 +1,7 @@
 const { ModuleFederationPlugin } = require("webpack").container;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const name = require("./package.json").name;
+const { name } = require("./package.json");
 
 module.exports = {
   mode: "development",

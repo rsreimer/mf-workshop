@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
-import { lastValueFrom, map } from "rxjs";
+import { catchError, lastValueFrom, map, of } from "rxjs";
 import {
   bootstrapMicroFrontend,
   MicroFrontend,
@@ -30,6 +30,7 @@ export class MicroFrontendService {
       const microFrontends$ = this.#http
         .get<MicroFrontend[]>(`${ORIGIN}/micro-frontend`)
         .pipe(
+          catchError(() => of([])),
           map((microFrontends) => {
             return [
               ...microFrontends.filter(

@@ -1,8 +1,9 @@
 const { ModuleFederationPlugin } = require("webpack").container;
+const { name } = require("./package.json");
 
 module.exports = (config) => {
   Object.assign(config.output, {
-    uniqueName: "angular",
+    uniqueName: name,
     scriptType: "text/javascript",
     publicPath: "auto",
   });
@@ -13,7 +14,7 @@ module.exports = (config) => {
 
   config.plugins?.push(
     new ModuleFederationPlugin({
-      name: "angular",
+      name,
       filename: "remoteEntry.js",
       exposes: {
         "./bootstrap": "./src/remote.ts",
