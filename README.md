@@ -8,6 +8,11 @@
 4. Repeat for both mf-react and mf-angular.
 
 
+`
+// TODO: Do those steps automatically in postinstall scripts.
+`
+
+
 ## Running locally
 ### Micro frontend 
 

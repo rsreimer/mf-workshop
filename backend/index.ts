@@ -6,6 +6,8 @@ import { rm, mkdir } from "shelljs";
 import { promisify } from "util";
 import { pipeline } from "stream";
 
+const ORIGIN = "https://where-ever-the-backend-is-hosted.com";
+
 const pump = promisify(pipeline);
 
 const app = Fastify({ logger: true });
@@ -59,7 +61,7 @@ app.put("/micro-frontend/:name/:secret/files", async (request) => {
   if (!microFrontend) {
     db.microFrontends.push({
       name,
-      url: `http://164.92.164.40/micro-frontends/${name}`,
+      url: `${ORIGIN}/micro-frontends/${name}`,
       secret,
     });
     writeDatabase();

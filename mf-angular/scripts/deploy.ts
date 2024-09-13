@@ -4,7 +4,7 @@ import axios from "axios";
 import fs from "fs";
 import FormData from "form-data";
 
-const origin = `http://164.92.164.40`;
+const ORIGIN = "https://where-ever-the-backend-is-hosted.com";
 
 if (!existsSync(".secret")) {
   writeFileSync(".secret", randomUUID());
@@ -25,6 +25,6 @@ files
     });
   });
 
-const url = `${origin}/micro-frontend/${name}/${secret}/files`;
+const url = `${ORIGIN}/micro-frontend/${name}/${secret}/files`;
 
 axios.put(url, form, { headers: form.getHeaders() });

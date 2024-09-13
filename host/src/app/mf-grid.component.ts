@@ -1,6 +1,9 @@
 import { Component, ElementRef, inject, OnInit } from "@angular/core";
 import { MicroFrontendService } from "./core/micro-frontend.service";
 
+// Names of micro frontends that should not be rendered
+const BLOCKED: string[] = [];
+
 @Component({
   selector: "app-mf-grid",
   standalone: true,
@@ -30,12 +33,15 @@ export class MfGridComponent implements OnInit {
   async insertMicroFrontends() {
     const mfs = await this.#service.getMicroFrontends();
 
-    mfs.reverse().forEach(async ({ name }) => {
-      const mfElement = document.createElement(`mf-${name}`);
+    mfs
+      .filter((mf) => !BLOCKED.includes(mf.name))
+      .reverse()
+      .forEach(async ({ name }) => {
+        const mfElement = document.createElement(`mf-${name}`);
 
-      this.#elementRef.nativeElement.appendChild(mfElement);
+        this.#elementRef.nativeElement.appendChild(mfElement);
 
-      await this.#service.bootstrap(name);
-    });
+        await this.#service.bootstrap(name);
+      });
   }
 }
