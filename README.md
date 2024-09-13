@@ -36,7 +36,7 @@ Micro frontend is served at http://localhost:3002
 ## Host
 
 ### Using locally served micro frontends
-Add an override in `host/src/app/core/micro-frontend.service.ts`.
+Add an override in `host/src/overrides.ts`.
 
 ### Running locally
 `cd host`
