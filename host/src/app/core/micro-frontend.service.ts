@@ -5,13 +5,9 @@ import {
   bootstrapMicroFrontend,
   MicroFrontend,
 } from "./bootstrap-micro-frontend";
+import { OVERRIDES } from "../../overrides";
 
 const ORIGIN = "https://where-ever-the-backend-is-hosted.com";
-
-const OVERRIDES: MicroFrontend[] = [
-  //{ name: "angular", url: "http://localhost:3001" },
-  //{ name: "react", url: "http://localhost:3002" },
-];
 
 @Injectable({ providedIn: "root" })
 export class MicroFrontendService {
