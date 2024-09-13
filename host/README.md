@@ -1,9 +1,7 @@
 ## Using locally served micro frontends
-Add an override in `host/src/overrides.ts`.
+Add an override in `src/overrides.ts`.
 
 ## Running locally
-`cd host`
-
 `npm install`
 
 `npm start`
